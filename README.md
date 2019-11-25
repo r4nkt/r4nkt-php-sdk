@@ -3,7 +3,7 @@
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/r4nkt/r4nkt-php-sdk.svg?style=flat-square)](https://packagist.org/packages/r4nkt/r4nkt-php-sdk)
 [![Build Status](https://img.shields.io/travis/r4nkt/r4nkt-php-sdk/master.svg?style=flat-square)](https://travis-ci.org/r4nkt/r4nkt-php-sdk)
 [![Quality Score](https://img.shields.io/scrutinizer/g/r4nkt/r4nkt-php-sdk.svg?style=flat-square)](https://scrutinizer-ci.com/g/r4nkt/r4nkt-php-sdk)
-[![StyleCI](https://github.styleci.io/repos/109322510/shield?branch=master)](https://github.styleci.io/repos/109322510)
+[![StyleCI](https://github.styleci.io/repos/223999411/shield?branch=master)](https://github.styleci.io/repos/223999411)
 [![Total Downloads](https://img.shields.io/packagist/dt/r4nkt/r4nkt-php-sdk.svg?style=flat-square)](https://packagist.org/packages/r4nkt/r4nkt-php-sdk)
 
 This SDK lets you perform API calls to [r4nkt](https://r4nkt.com).
