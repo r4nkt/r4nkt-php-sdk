@@ -4,9 +4,9 @@ namespace R4nkt\PhpSdk;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;
+use R4nkt\PhpSdk\Exceptions\FailedActionException;
 use R4nkt\PhpSdk\Exceptions\NotFoundException;
 use R4nkt\PhpSdk\Exceptions\ValidationException;
-use R4nkt\PhpSdk\Exceptions\FailedActionException;
 
 trait MakesHttpRequests
 {
