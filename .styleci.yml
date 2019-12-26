@@ -1,12 +1,9 @@
-php:
-  preset: laravel
-  disabled:
+preset: laravel
+
+disabled:
     - alpha_ordered_imports
     - single_class_element_per_statement
     - unused_use
-  enabled:
+
+enabled:
     - length_ordered_imports
-  finder:
-    not-name:
-      - index.php
-      - server.php
