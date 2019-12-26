@@ -77,7 +77,7 @@ class R4nkt
 
             if ($response) {
                 // Retry on rate limit hits
-                if ($response->getStatusCode() == 429 ) {
+                if ($response->getStatusCode() == 429) {
                     $this->retryAfter = $response->hasHeader('retry-after') ? $response->getHeader('retry-after')[0] : null;
 
                     return true;
