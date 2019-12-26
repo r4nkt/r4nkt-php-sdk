@@ -84,7 +84,7 @@ class R4nkt
                 }
 
                 // Retry on server errors
-                if ($response->getStatusCode() >= 500 ) {
+                if ($response->getStatusCode() >= 500) {
                     return true;
                 }
             }
@@ -94,7 +94,7 @@ class R4nkt
     }
 
     /**
-     * delay 1s 2s 3s 4s 5s
+     * delay 1s 2s 3s 4s 5s.
      *
      * @return Closure
      */
