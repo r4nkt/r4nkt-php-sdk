@@ -13,6 +13,7 @@ use R4nkt\PhpSdk\Actions\ManagesCriteria;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
 use R4nkt\PhpSdk\Actions\ManagesAchievements;
+use R4nkt\PhpSdk\Actions\ManagesLeaderboards;
 use R4nkt\PhpSdk\Actions\ManagesCriteriaGroups;
 
 class R4nkt
@@ -22,6 +23,7 @@ class R4nkt
     use ManagesActions;
     use ManagesCriteria;
     use ManagesCriteriaGroups;
+    use ManagesLeaderboards;
     use ManagesRewards;
 
     /** @var string */
