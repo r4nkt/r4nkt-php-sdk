@@ -29,6 +29,13 @@ trait ManagesAchievements
         return new Achievement($achievementAttributes['data'], $this);
     }
 
+    public function updateAchievement(string $customAchievementId, array $data): Achievement
+    {
+        $achievementAttributes = $this->put("achievements/{$customAchievementId}", $data);
+
+        return new Achievement($achievementAttributes['data'], $this);
+    }
+
     public function deleteAchievement(string $customAchievementId)
     {
         $this->delete("achievements/{$customAchievementId}");

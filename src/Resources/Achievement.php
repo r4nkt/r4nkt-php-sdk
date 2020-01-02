@@ -5,6 +5,16 @@ namespace R4nkt\PhpSdk\Resources;
 class Achievement extends ApiResource
 {
     /**
+     * Update the given achievement.
+     *
+     * @return void
+     */
+    public function update(array $data)
+    {
+        return $this->r4nkt->updateAchievement($this->customId, $data);
+    }
+
+    /**
      * Delete the given achievement.
      *
      * @return void
