@@ -28,8 +28,7 @@ trait ManagesActivities
         ?string $session = null,
         ?string $dateTimeUtc = null,
         ?string $modifier = null
-    ) : Activity
-    {
+    ): Activity {
         $data = [
             'custom_player_id' => $customPlayerId,
             'custom_action_id' => $customActionId,

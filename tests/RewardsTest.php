@@ -6,7 +6,7 @@ use R4nkt\PhpSdk\Exceptions\NotFoundException;
 
 class RewardsTest extends TestCase
 {
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
 

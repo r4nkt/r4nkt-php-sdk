@@ -6,7 +6,7 @@ use R4nkt\PhpSdk\Exceptions\NotFoundException;
 
 class AchievementsTest extends TestCase
 {
-    public function setUp() : void
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -110,8 +110,8 @@ class AchievementsTest extends TestCase
         $customId = 'achievement.a';
         $achievement = $this->createAchievement($customId);
 
-        $name = 'name' . uniqid();
-        $description = 'description' . uniqid();
+        $name = 'name'.uniqid();
+        $description = 'description'.uniqid();
 
         $achievement = $this->r4nkt->updateAchievement($achievement->custom_id, [
             'name' => $name,
@@ -129,8 +129,8 @@ class AchievementsTest extends TestCase
         $customId = 'achievement.a';
         $achievement = $this->createAchievement($customId);
 
-        $name = 'name' . uniqid();
-        $description = 'description' . uniqid();
+        $name = 'name'.uniqid();
+        $description = 'description'.uniqid();
 
         $achievement = $achievement->update([
             'name' => $name,
