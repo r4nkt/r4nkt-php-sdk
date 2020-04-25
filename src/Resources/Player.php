@@ -19,7 +19,7 @@ class Player extends ApiResource
         int $amount = 1,
         ?string $session = null,
         ?string $dateTimeUtc = null,
-        ?string $modifier = null,
+        ?string $modifier = null
     ) : Activity
     {
         return $this->r4nkt->reportActivity($this->custom_id, $customActionId, $amount, $session, $dateTimeUtc, $modifier);
