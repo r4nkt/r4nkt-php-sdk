@@ -33,19 +33,6 @@ class ApiResource
         }
     }
 
-    protected function camelCase(string $key): string
-    {
-        $parts = explode('_', $key);
-
-        foreach ($parts as $i => $part) {
-            if ($i !== 0) {
-                $parts[$i] = ucfirst($part);
-            }
-        }
-
-        return str_replace(' ', '', implode(' ', $parts));
-    }
-
     public function __sleep()
     {
         $publicProperties = (new ReflectionObject($this))->getProperties(ReflectionProperty::IS_PUBLIC);
