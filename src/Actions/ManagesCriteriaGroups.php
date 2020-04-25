@@ -2,8 +2,8 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
-use R4nkt\PhpSdk\Resources\CriteriaGroup;
 use R4nkt\PhpSdk\Resources\Criterion;
+use R4nkt\PhpSdk\Resources\CriteriaGroup;
 
 trait ManagesCriteriaGroups
 {
@@ -34,7 +34,7 @@ trait ManagesCriteriaGroups
         $this->delete("criteria-groups/{$customCriteriaGroupId}");
     }
 
-    public function attachCriterionToCriteriaGroup(string $customCriteriaGroupId, string $customCriterionId) : Criterion
+    public function attachCriterionToCriteriaGroup(string $customCriteriaGroupId, string $customCriterionId): Criterion
     {
         $data = ['custom_criterion_id' => $customCriterionId];
         $criterionAttributes = $this->post("criteria-groups/{$customCriteriaGroupId}/criteria", $data);
