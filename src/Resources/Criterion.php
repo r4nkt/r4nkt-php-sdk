@@ -11,7 +11,7 @@ class Criterion extends ApiResource
      */
     public function delete()
     {
-        $this->r4nkt->deleteCriterion($this->customId);
+        $this->r4nkt->deleteCriterion($this->custom_id);
     }
 
     // /**
@@ -21,6 +21,6 @@ class Criterion extends ApiResource
     //  */
     // public function brokenLinks()
     // {
-    //     return $this->r4nkt->brokenLinks($this->customId);
+    //     return $this->r4nkt->brokenLinks($this->custom_id);
     // }
 }

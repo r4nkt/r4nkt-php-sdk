@@ -29,8 +29,6 @@ class ApiResource
     protected function fill()
     {
         foreach ($this->attributes as $key => $value) {
-            $key = $this->camelCase($key);
-
             $this->{$key} = $value;
         }
     }

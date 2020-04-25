@@ -2,17 +2,17 @@
 
 namespace R4nkt\PhpSdk\Resources;
 
-class Action extends ApiResource
+class Badge extends ApiResource
 {
-    /**
-     * Delete the given action.
-     *
-     * @return void
-     */
-    public function delete()
-    {
-        $this->r4nkt->deleteAction($this->custom_id);
-    }
+    // /**
+    //  * Delete the given action.
+    //  *
+    //  * @return void
+    //  */
+    // public function delete()
+    // {
+    //     $this->r4nkt->deleteAction($this->custom_id);
+    // }
 
     // /**
     //  * Get the broken links for this action.

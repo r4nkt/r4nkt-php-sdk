@@ -3,27 +3,33 @@
 namespace R4nkt\PhpSdk;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Middleware;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Psr7\Request;
-use GuzzleHttp\Psr7\Response;
-use R4nkt\PhpSdk\Actions\ManagesActions;
-use R4nkt\PhpSdk\Actions\ManagesRewards;
-use R4nkt\PhpSdk\Actions\ManagesCriteria;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
+use GuzzleHttp\Psr7\Request;
+use GuzzleHttp\Psr7\Response;
 use R4nkt\PhpSdk\Actions\ManagesAchievements;
-use R4nkt\PhpSdk\Actions\ManagesLeaderboards;
+use R4nkt\PhpSdk\Actions\ManagesActions;
+use R4nkt\PhpSdk\Actions\ManagesActivities;
+use R4nkt\PhpSdk\Actions\ManagesBadges;
+use R4nkt\PhpSdk\Actions\ManagesCriteria;
 use R4nkt\PhpSdk\Actions\ManagesCriteriaGroups;
+use R4nkt\PhpSdk\Actions\ManagesLeaderboards;
+use R4nkt\PhpSdk\Actions\ManagesPlayers;
+use R4nkt\PhpSdk\Actions\ManagesRewards;
 
 class R4nkt
 {
     use MakesHttpRequests;
     use ManagesAchievements;
     use ManagesActions;
+    use ManagesActivities;
+    use ManagesBadges;
     use ManagesCriteria;
     use ManagesCriteriaGroups;
     use ManagesLeaderboards;
+    use ManagesPlayers;
     use ManagesRewards;
 
     /** @var string */

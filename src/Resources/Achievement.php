@@ -11,7 +11,7 @@ class Achievement extends ApiResource
      */
     public function update(array $data)
     {
-        return $this->r4nkt->updateAchievement($this->customId, $data);
+        return $this->r4nkt->updateAchievement($this->custom_id, $data);
     }
 
     /**
@@ -21,7 +21,7 @@ class Achievement extends ApiResource
      */
     public function delete()
     {
-        $this->r4nkt->deleteAchievement($this->customId);
+        $this->r4nkt->deleteAchievement($this->custom_id);
     }
 
     /**
@@ -31,7 +31,7 @@ class Achievement extends ApiResource
      */
     public function rewards()
     {
-        return $this->r4nkt->achievementRewards($this->customId);
+        return $this->r4nkt->achievementRewards($this->custom_id);
     }
 
     /**
@@ -42,7 +42,7 @@ class Achievement extends ApiResource
      */
     public function attachReward(string $customRewardId)
     {
-        return $this->r4nkt->attachRewardToAchievement($this->customId, $customRewardId);
+        return $this->r4nkt->attachRewardToAchievement($this->custom_id, $customRewardId);
     }
 
     /**
@@ -52,6 +52,6 @@ class Achievement extends ApiResource
      */
     public function detachReward(string $customRewardId)
     {
-        $this->r4nkt->detachRewardFromAchievement($this->customId, $customRewardId);
+        $this->r4nkt->detachRewardFromAchievement($this->custom_id, $customRewardId);
     }
 }
