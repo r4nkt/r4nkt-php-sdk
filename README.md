@@ -10,7 +10,7 @@ This SDK lets you perform API calls to [r4nkt](https://r4nkt.com).
 
 ## Documentation
 
-All documentation, including examples and installation instructions, can be found...soon.
+All documentation, including examples and installation instructions, can be found [here](https://docs.r4nkt.com/php-sdk/overview).
 
 ## Security
 
