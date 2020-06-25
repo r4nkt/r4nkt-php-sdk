@@ -6,21 +6,6 @@ use R4nkt\PhpSdk\Resources\Activity;
 
 trait ManagesActivities
 {
-    // public function activities() : array
-    // {
-    //     return $this->transformCollection(
-    //         $this->get('activities')['data'],
-    //         Activity::class
-    //     );
-    // }
-
-    // public function activity(string $customActivityId) : Activity
-    // {
-    //     $activityAttributes = $this->get("activities/{$customActivityId}");
-
-    //     return new Activity($activityAttributes['data'], $this);
-    // }
-
     public function reportActivity(
         string $customPlayerId,
         string $customActionId,
@@ -51,16 +36,4 @@ trait ManagesActivities
 
         return new Activity($activityAttributes['data'], $this);
     }
-
-    // public function createActivity(array $data) : Activity
-    // {
-    //     $activityAttributes = $this->post('activities', $data);
-
-    //     return new Activity($activityAttributes['data'], $this);
-    // }
-
-    // public function deleteActivity(string $customActivityId) : void
-    // {
-    //     $this->delete("activities/{$customActivityId}");
-    // }
 }

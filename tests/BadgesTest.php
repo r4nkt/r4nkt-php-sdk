@@ -34,7 +34,7 @@ class BadgesTest extends TestCase
         $achievement = $this->createAchievement('achievement.a', null, null, $criteriaGroup->custom_id);
 
         $activity = $this->r4nkt->reportActivity('custom.player.id', $action->custom_id);
-        usleep(1000000);
+        usleep(1000000); // a second should allow sufficient time for the badge to be awarded
         $badges = $this->r4nkt->playerBadges('custom.player.id');
 
         $this->assertCount(1, $badges);
