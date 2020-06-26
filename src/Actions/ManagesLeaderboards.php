@@ -32,9 +32,4 @@ trait ManagesLeaderboards
     {
         $this->delete("leaderboards/{$customLeaderboardId}");
     }
-
-    public function leaderboardRankings(string $customLeaderboardId): array
-    {
-        return $this->get("leaderboards/{$customLeaderboardId}/rankings");
-    }
 }

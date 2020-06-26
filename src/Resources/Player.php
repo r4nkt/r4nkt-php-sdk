@@ -9,7 +9,7 @@ class Player extends ApiResource
      *
      * @return void
      */
-    public function delete()
+    public function delete(): void
     {
         $this->r4nkt->deletePlayer($this->custom_id);
     }
@@ -22,6 +22,11 @@ class Player extends ApiResource
         ?string $modifier = null
     ): Activity {
         return $this->r4nkt->reportActivity($this->custom_id, $customActionId, $amount, $session, $dateTimeUtc, $modifier);
+    }
+
+    public function leaderboardRankings(string $customLeaderboardId): array
+    {
+        return $this->r4nkt->leaderboardPlayerRankings($customLeaderboardId, $this->custom_id);
     }
 
     // /**
