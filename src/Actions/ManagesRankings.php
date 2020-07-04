@@ -8,17 +8,23 @@ trait ManagesRankings
 {
     public function leaderboardRankings(string $customLeaderboardId): array
     {
-        return $this->transformCollection(
-            $this->get("leaderboards/{$customLeaderboardId}/rankings")['data'],
-            Ranking::class
-        );
+        $response = $this->get("leaderboards/{$customLeaderboardId}/rankings");
+
+        return [
+            'data' => $this->transformCollection($response['data'], Ranking::class),
+            'links' => $response['links'],
+            'meta' => $response['meta'],
+        ];
     }
 
     public function leaderboardPlayerRankings(string $customLeaderboardId, string $customPlayerId): array
     {
-        return $this->transformCollection(
-            $this->get("leaderboards/{$customLeaderboardId}/players/{$customPlayerId}/rankings")['data'],
-            Ranking::class
-        );
+        $response = $this->get("leaderboards/{$customLeaderboardId}/players/{$customPlayerId}/rankings");
+
+        return [
+            'data' => $this->transformCollection($response['data'], Ranking::class),
+            'links' => $response['links'],
+            'meta' => $response['meta'],
+        ];
     }
 }
