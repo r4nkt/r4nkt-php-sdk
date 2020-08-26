@@ -2,29 +2,24 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\Ranking;
 
 trait ManagesRankings
 {
-    public function leaderboardRankings(string $customLeaderboardId): array
+    public function leaderboardRankings(string $customLeaderboardId): ApiResourceCollection
     {
-        $response = $this->get("leaderboards/{$customLeaderboardId}/rankings");
-
-        return [
-            'data' => $this->transformCollection($response['data'], Ranking::class),
-            'links' => $response['links'],
-            'meta' => $response['meta'],
-        ];
+        return $this->buildCollection(
+            $this->get("leaderboards/{$customLeaderboardId}/rankings"),
+            Ranking::class
+        );
     }
 
-    public function leaderboardPlayerRankings(string $customLeaderboardId, string $customPlayerId): array
+    public function leaderboardPlayerRankings(string $customLeaderboardId, string $customPlayerId): ApiResourceCollection
     {
-        $response = $this->get("leaderboards/{$customLeaderboardId}/players/{$customPlayerId}/rankings");
-
-        return [
-            'data' => $this->transformCollection($response['data'], Ranking::class),
-            'links' => $response['links'],
-            'meta' => $response['meta'],
-        ];
+        return $this->buildCollection(
+            $this->get("leaderboards/{$customLeaderboardId}/players/{$customPlayerId}/rankings"),
+            Ranking::class
+        );
     }
 }

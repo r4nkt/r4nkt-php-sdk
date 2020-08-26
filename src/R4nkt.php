@@ -19,6 +19,7 @@ use R4nkt\PhpSdk\Actions\ManagesLeaderboards;
 use R4nkt\PhpSdk\Actions\ManagesPlayers;
 use R4nkt\PhpSdk\Actions\ManagesRankings;
 use R4nkt\PhpSdk\Actions\ManagesRewards;
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 
 class R4nkt
 {
@@ -52,6 +53,16 @@ class R4nkt
         $this->gameId = $gameId;
 
         $this->client = $client ?: $this->defaultClient();
+    }
+
+    protected function buildCollection(array $response, string $resourceClass): ApiResourceCollection
+    {
+        $collection = $this->transformCollection(
+            $response['data'],
+            $resourceClass
+        );
+
+        return new ApiResourceCollection($collection, $response['meta'] ?? [], $this);
     }
 
     protected function transformCollection(array $collection, string $class): array

@@ -2,14 +2,15 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\Criterion;
 
 trait ManagesCriteria
 {
-    public function criteria(): array
+    public function criteria(): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get('criteria')['data'],
+        return $this->buildCollection(
+            $this->get('criteria'),
             Criterion::class
         );
     }

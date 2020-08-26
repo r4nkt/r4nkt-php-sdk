@@ -2,15 +2,16 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
-use R4nkt\PhpSdk\Resources\Reward;
 use R4nkt\PhpSdk\Resources\Achievement;
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
+use R4nkt\PhpSdk\Resources\Reward;
 
 trait ManagesAchievements
 {
-    public function achievements(): array
+    public function achievements(): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get('achievements')['data'],
+        return $this->buildCollection(
+            $this->get('achievements'),
             Achievement::class
         );
     }
@@ -54,10 +55,10 @@ trait ManagesAchievements
         $this->delete("achievements/{$customAchievementId}/rewards/{$customRewardId}");
     }
 
-    public function achievementRewards(string $customAchievementId): array
+    public function achievementRewards(string $customAchievementId): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get("achievements/{$customAchievementId}/rewards")['data'],
+        return $this->buildCollection(
+            $this->get("achievements/{$customAchievementId}/rewards"),
             Achievement::class
         );
     }

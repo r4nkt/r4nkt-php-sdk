@@ -2,14 +2,15 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\Reward;
 
 trait ManagesRewards
 {
-    public function rewards(): array
+    public function rewards(): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get('rewards')['data'],
+        return $this->buildCollection(
+            $this->get('rewards'),
             Reward::class
         );
     }

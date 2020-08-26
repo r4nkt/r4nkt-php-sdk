@@ -3,13 +3,14 @@
 namespace R4nkt\PhpSdk\Actions;
 
 use R4nkt\PhpSdk\Resources\Action;
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 
 trait ManagesActions
 {
-    public function actions(): array
+    public function actions(): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get('actions')['data'],
+        return $this->buildCollection(
+            $this->get('actions'),
             Action::class
         );
     }

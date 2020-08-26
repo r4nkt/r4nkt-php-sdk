@@ -2,13 +2,14 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\Player;
 
 trait ManagesPlayers
 {
-    public function players(): array
+    public function players(): ApiResourceCollection
     {
-        return $this->transformCollection(
+        return $this->buildCollection(
             $this->get('players')['data'],
             Player::class
         );

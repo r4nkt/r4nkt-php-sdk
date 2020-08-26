@@ -2,14 +2,15 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\Leaderboard;
 
 trait ManagesLeaderboards
 {
-    public function leaderboards(): array
+    public function leaderboards(): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get('leaderboards')['data'],
+        return $this->buildCollection(
+            $this->get('leaderboards'),
             Leaderboard::class
         );
     }

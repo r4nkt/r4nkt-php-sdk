@@ -2,15 +2,16 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
-use R4nkt\PhpSdk\Resources\Criterion;
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\CriteriaGroup;
+use R4nkt\PhpSdk\Resources\Criterion;
 
 trait ManagesCriteriaGroups
 {
-    public function criteriaGroups(): array
+    public function criteriaGroups(): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get('criteria-groups')['data'],
+        return $this->buildCollection(
+            $this->get('criteria-groups'),
             CriteriaGroup::class
         );
     }
@@ -47,10 +48,10 @@ trait ManagesCriteriaGroups
         $this->delete("criteria-groups/{$customCriteriaGroupId}/criteria/{$customCriterionId}");
     }
 
-    public function achievementCriteria(string $customCriteriaGroupId): array
+    public function achievementCriteria(string $customCriteriaGroupId): ApiResourceCollection
     {
-        return $this->transformCollection(
-            $this->get("criteria-groups/{$customCriteriaGroupId}/criteria")['data'],
+        return $this->buildCollection(
+            $this->get("criteria-groups/{$customCriteriaGroupId}/criteria"),
             CriteriaGroup::class
         );
     }
