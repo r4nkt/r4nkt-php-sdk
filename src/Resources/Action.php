@@ -14,13 +14,13 @@ class Action extends ApiResource
         $this->r4nkt->deleteAction($this->custom_id);
     }
 
-    // /**
-    //  * Get the broken links for this action.
-    //  *
-    //  * @return array
-    //  */
-    // public function brokenLinks()
-    // {
-    //     return $this->r4nkt->brokenLinks($this->custom_id);
-    // }
+    /**
+     * Get the reactions for this action.
+     *
+     * @return array
+     */
+    public function reactions()
+    {
+        return $this->r4nkt->actionReactions($this->custom_id);
+    }
 }

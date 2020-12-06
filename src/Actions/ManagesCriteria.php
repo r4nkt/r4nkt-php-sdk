@@ -2,15 +2,16 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\QueryParams\CriteriaParams;
 use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\Criterion;
 
 trait ManagesCriteria
 {
-    public function criteria(): ApiResourceCollection
+    public function criteria(CriteriaParams $params = null): ApiResourceCollection
     {
         return $this->buildCollection(
-            $this->get('criteria'),
+            $this->get('criteria', $params),
             Criterion::class
         );
     }

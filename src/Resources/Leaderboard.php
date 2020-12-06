@@ -17,11 +17,23 @@ class Leaderboard extends ApiResource
     /**
      * Get this leaderboard's rankings
      *
-     * @return array
+     * @return ApiResourceCollection
      */
-    public function rankings(): array
+    public function rankings(): ApiResourceCollection
     {
         return $this->r4nkt->leaderboardRankings($this->custom_id);
+    }
+
+    /**
+     * Submit a player score for this leaderboard.
+     *
+     * @param  string $customPlayerId [description]
+     * @param  int    $score          [description]
+     * @return [type]                 [description]
+     */
+    public function submitPlayerScore(string $customPlayerId, int $score, string $dateTimeUtc = null)
+    {
+        return $this->r4nkt->submitPlayerScore($customPlayerId, $this->custom_id, $score, $dateTimeUtc);
     }
 
     // /**

@@ -2,15 +2,16 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\QueryParams\ActionsParams;
 use R4nkt\PhpSdk\Resources\Action;
 use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 
 trait ManagesActions
 {
-    public function actions(): ApiResourceCollection
+    public function actions(ActionsParams $params = null): ApiResourceCollection
     {
         return $this->buildCollection(
-            $this->get('actions'),
+            $this->get('actions', $params),
             Action::class
         );
     }
@@ -32,5 +33,13 @@ trait ManagesActions
     public function deleteAction(string $customActionId): void
     {
         $this->delete("actions/{$customActionId}");
+    }
+
+    public function actionReactions(string $customActionId, ActionsParams $params = null): ApiResourceCollection
+    {
+        return $this->buildCollection(
+            $this->get("actions/{$customActionId}/reactions", $params),
+            Action::class
+        );
     }
 }

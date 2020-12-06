@@ -61,4 +61,45 @@ class ApiResourceCollection implements ArrayAccess, Countable, IteratorAggregate
     {
         return new ArrayIterator($this->resources);
     }
+
+    public function currentPage()
+    {
+        return $this->meta['current_page'];
+    }
+
+    public function from()
+    {
+        return $this->meta['from'];
+    }
+
+    public function lastPage()
+    {
+        return $this->meta['last_page'];
+    }
+
+    public function links()
+    {
+        return $this->meta['links'];
+    }
+
+    public function path()
+    {
+        return $this->meta['path'];
+    }
+
+    public function perPage()
+    {
+        return $this->meta['per_page'];
+    }
+
+    public function to()
+    {
+        return $this->meta['to'];
+    }
+
+    public function total()
+    {
+        return $this->meta['total'];
+    }
+
 }

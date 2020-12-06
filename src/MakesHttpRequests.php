@@ -4,9 +4,10 @@ namespace R4nkt\PhpSdk;
 
 use Exception;
 use Psr\Http\Message\ResponseInterface;
+use R4nkt\PhpSdk\Exceptions\FailedActionException;
 use R4nkt\PhpSdk\Exceptions\NotFoundException;
 use R4nkt\PhpSdk\Exceptions\ValidationException;
-use R4nkt\PhpSdk\Exceptions\FailedActionException;
+use R4nkt\PhpSdk\QueryParams\QueryParams;
 
 trait MakesHttpRequests
 {
@@ -15,9 +16,9 @@ trait MakesHttpRequests
      *
      * @return mixed
      */
-    protected function get(string $uri)
+    protected function get(string $uri, QueryParams $queryParams = null)
     {
-        return $this->request('GET', $uri);
+        return $this->request('GET', $uri, [], $queryParams);
     }
 
     /**
@@ -60,8 +61,17 @@ trait MakesHttpRequests
      *
      * @return mixed
      */
-    protected function request(string $verb, string $uri, array $payload = [])
+    protected function request(string $verb, string $uri, array $payload = [], QueryParams $queryParams = null)
     {
+        if ($queryParams) {
+            $ready = [];
+            foreach ($queryParams->all() as $key => $value) {
+                $ready[] = "{$key}={$value}";
+            }
+
+            $uri .= '?' . implode('&', $ready);
+        }
+
         $response = $this->client->request($verb, $uri,
             empty($payload) ? [] : ['json' => $payload]
         );

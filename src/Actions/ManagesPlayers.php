@@ -2,15 +2,16 @@
 
 namespace R4nkt\PhpSdk\Actions;
 
+use R4nkt\PhpSdk\QueryParams\PlayersParams;
 use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 use R4nkt\PhpSdk\Resources\Player;
 
 trait ManagesPlayers
 {
-    public function players(): ApiResourceCollection
+    public function players(PlayersParams $params = null): ApiResourceCollection
     {
         return $this->buildCollection(
-            $this->get('players')['data'],
+            $this->get('players', $params),
             Player::class
         );
     }
