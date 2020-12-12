@@ -6,21 +6,21 @@ class AchievementsParams extends QueryParams
 {
     use AllowsPagination;
 
-    public function withSecret()
+    public function withSecrets()
     {
         $this->add('filter[secret]', 'with');
 
         return $this;
     }
 
-    public function withoutSecret()
+    public function withoutSecrets()
     {
         $this->add('filter[secret]', 'without');
 
         return $this;
     }
 
-    public function onlySecret()
+    public function onlySecrets()
     {
         $this->add('filter[secret]', 'only');
 
