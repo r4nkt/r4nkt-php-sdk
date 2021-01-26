@@ -10,7 +10,7 @@ trait ManagesActivities
         string $customPlayerId,
         string $customActionId,
         int $amount = 1,
-        ?string $session = null,
+        ?string $customSessionId = null,
         ?string $dateTimeUtc = null,
         ?string $modifier = null
     ): Activity {
@@ -22,8 +22,8 @@ trait ManagesActivities
         if ($amount) {
             $data['amount'] = $amount;
         }
-        if ($session) {
-            $data['session'] = $session;
+        if ($customSessionId) {
+            $data['custom_session_id'] = $customSessionId;
         }
         if ($dateTimeUtc) {
             $data['date_time_utc'] = $dateTimeUtc;
