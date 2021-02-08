@@ -50,7 +50,7 @@ trait ManagesCriteriaGroups
         $this->delete("criteria-groups/{$customCriteriaGroupId}/criteria/{$customCriterionId}");
     }
 
-    public function achievementCriteria(string $customCriteriaGroupId, CriteriaParams $params = null): ApiResourceCollection
+    public function criteriaGroupCriteria(string $customCriteriaGroupId, CriteriaParams $params = null): ApiResourceCollection
     {
         return $this->buildCollection(
             $this->get("criteria-groups/{$customCriteriaGroupId}/criteria", $params),
