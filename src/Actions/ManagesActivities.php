@@ -10,6 +10,7 @@ trait ManagesActivities
         string $customPlayerId,
         string $customActionId,
         int $amount = 1,
+        ?array $customData = null,
         ?string $customSessionId = null,
         ?string $dateTimeUtc = null,
         ?string $modifier = null
@@ -21,6 +22,9 @@ trait ManagesActivities
 
         if ($amount) {
             $data['amount'] = $amount;
+        }
+        if ($customData) {
+            $data['custom_data'] = json_encode($customData);
         }
         if ($customSessionId) {
             $data['custom_session_id'] = $customSessionId;
