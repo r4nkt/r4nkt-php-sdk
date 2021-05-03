@@ -1,9 +1,0 @@
-preset: laravel
-
-disabled:
-    - alpha_ordered_imports
-    - single_class_element_per_statement
-    - unused_use
-
-enabled:
-    - length_ordered_imports
