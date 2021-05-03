@@ -72,7 +72,9 @@ trait MakesHttpRequests
             $uri .= '?' . implode('&', $ready);
         }
 
-        $response = $this->client->request($verb, $uri,
+        $response = $this->client->request(
+            $verb,
+            $uri,
             empty($payload) ? [] : ['json' => $payload]
         );
 

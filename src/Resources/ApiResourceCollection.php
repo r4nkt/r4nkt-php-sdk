@@ -101,5 +101,4 @@ class ApiResourceCollection implements ArrayAccess, Countable, IteratorAggregate
     {
         return $this->meta['total'];
     }
-
 }
