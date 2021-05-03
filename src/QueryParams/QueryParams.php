@@ -8,7 +8,13 @@ class QueryParams
 
     protected $queryParams = [];
 
-    protected function add(string $key, int|string $value)
+    /**
+     * @todo Drop doc block type hints once PHP 7.x support dropped and union type hints supported.
+     *
+     * @param string $key
+     * @param int|string $value
+     */
+    protected function add($key, $value)
     {
         $this->queryParams[$key] = $value;
 
