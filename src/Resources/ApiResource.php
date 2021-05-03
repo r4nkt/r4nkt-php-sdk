@@ -2,22 +2,17 @@
 
 namespace R4nkt\PhpSdk\Resources;
 
+use R4nkt\PhpSdk\R4nkt;
 use ReflectionObject;
 use ReflectionProperty;
 
 class ApiResource
 {
-    /** @var array */
-    public $attributes = [];
+    public array $attributes = [];
 
-    /** @var \R4nkt\PhpSdk\R4nkt */
-    protected $r4nkt;
+    protected R4nkt $r4nkt;
 
-    /**
-     * @param  array $attributes
-     * @param  \R4nkt\PhpSdk\R4nkt $r4nkt
-     */
-    public function __construct(array $attributes, $r4nkt = null)
+    public function __construct(array $attributes, R4nkt $r4nkt = null)
     {
         $this->attributes = $attributes;
 

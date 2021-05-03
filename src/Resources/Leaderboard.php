@@ -4,10 +4,10 @@ namespace R4nkt\PhpSdk\Resources;
 
 class Leaderboard extends ApiResource
 {
+    protected string $custom_id;
+
     /**
      * Delete this leaderboard.
-     *
-     * @return void
      */
     public function delete(): void
     {
@@ -16,8 +16,6 @@ class Leaderboard extends ApiResource
 
     /**
      * Get this leaderboard's rankings
-     *
-     * @return ApiResourceCollection
      */
     public function rankings(): ApiResourceCollection
     {
@@ -26,23 +24,9 @@ class Leaderboard extends ApiResource
 
     /**
      * Submit a player score for this leaderboard.
-     *
-     * @param  string $customPlayerId [description]
-     * @param  int    $score          [description]
-     * @return [type]                 [description]
      */
-    public function submitPlayerScore(string $customPlayerId, int $score, string $dateTimeUtc = null)
+    public function submitPlayerScore(string $customPlayerId, int $score, string $dateTimeUtc = null): Score
     {
         return $this->r4nkt->submitPlayerScore($customPlayerId, $this->custom_id, $score, $dateTimeUtc);
     }
-
-    // /**
-    //  * Get the broken links for this leaderboard.
-    //  *
-    //  * @return array
-    //  */
-    // public function brokenLinks()
-    // {
-    //     return $this->r4nkt->brokenLinks($this->custom_id);
-    // }
 }

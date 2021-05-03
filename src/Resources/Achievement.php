@@ -4,53 +4,44 @@ namespace R4nkt\PhpSdk\Resources;
 
 class Achievement extends ApiResource
 {
+    protected string $custom_id;
+
     /**
      * Update the given achievement.
-     *
-     * @return void
      */
-    public function update(array $data)
+    public function update(array $data): self
     {
         return $this->r4nkt->updateAchievement($this->custom_id, $data);
     }
 
     /**
      * Delete the given achievement.
-     *
-     * @return void
      */
-    public function delete()
+    public function delete(): void
     {
         $this->r4nkt->deleteAchievement($this->custom_id);
     }
 
     /**
      * Get the rewards for this achievement.
-     *
-     * @return array
      */
-    public function rewards()
+    public function rewards(): ApiResourceCollection
     {
         return $this->r4nkt->achievementRewards($this->custom_id);
     }
 
     /**
      * Attach a reward to this achievement.
-     *
-     * @param  string $customRewardId [description]
-     * @return \R4nkt\PhpSdk\Resources\Reward
      */
-    public function attachReward(string $customRewardId)
+    public function attachReward(string $customRewardId): Reward
     {
         return $this->r4nkt->attachRewardToAchievement($this->custom_id, $customRewardId);
     }
 
     /**
      * Detach a reward from this achievement.
-     *
-     * @return void
      */
-    public function detachReward(string $customRewardId)
+    public function detachReward(string $customRewardId): void
     {
         $this->r4nkt->detachRewardFromAchievement($this->custom_id, $customRewardId);
     }

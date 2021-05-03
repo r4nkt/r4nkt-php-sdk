@@ -4,10 +4,10 @@ namespace R4nkt\PhpSdk\Resources;
 
 class Player extends ApiResource
 {
+    protected string $custom_id;
+
     /**
      * Delete the given reward.
-     *
-     * @return void
      */
     public function delete(): void
     {
@@ -17,25 +17,24 @@ class Player extends ApiResource
     public function reportActivity(
         string $customActionId,
         int $amount = 1,
+        ?array $customData = null,
         ?string $session = null,
         ?string $dateTimeUtc = null,
         ?string $modifier = null
     ): Activity {
-        return $this->r4nkt->reportActivity($this->custom_id, $customActionId, $amount, $session, $dateTimeUtc, $modifier);
+        return $this->r4nkt->reportActivity(
+            $this->custom_id,
+            $customActionId,
+            $amount,
+            $customData,
+            $session,
+            $dateTimeUtc,
+            $modifier,
+        );
     }
 
-    public function leaderboardRankings(string $customLeaderboardId): array
+    public function leaderboardRankings(string $customLeaderboardId): ApiResourceCollection
     {
         return $this->r4nkt->leaderboardPlayerRankings($customLeaderboardId, $this->custom_id);
     }
-
-    // /**
-    //  * Get the broken links for this reward.
-    //  *
-    //  * @return array
-    //  */
-    // public function brokenLinks()
-    // {
-    //     return $this->r4nkt->brokenLinks($this->custom_id);
-    // }
 }

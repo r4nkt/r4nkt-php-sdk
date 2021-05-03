@@ -4,7 +4,7 @@ namespace R4nkt\PhpSdk;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\TransferException;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\Psr7\Request;
@@ -35,20 +35,15 @@ class R4nkt
     use ManagesRankings;
     use ManagesRewards;
 
-    /** @var string */
-    public $url;
+    public string $url;
 
-    /** @var string */
-    public $apiToken;
+    public string $apiToken;
 
-    /** @var string */
-    public $gameId;
+    public string $gameId;
 
-    /** @var \GuzzleHttp\Client */
-    public $client;
+    public Client $client;
 
-    /** @var int */
-    public $retryAfter;
+    public ?int $retryAfter;
 
     public function __construct(string $url, string $apiToken, string $gameId, Client $client = null)
     {
@@ -95,7 +90,12 @@ class R4nkt
 
     public function retryDecider()
     {
-        return function ($retries, Request $request, Response $response = null, RequestException $exception = null) {
+        /**
+         * The variable, $_request, is not used, but is required. As such, it's
+         * suppressed per:
+         *  - https://psalm.dev/docs/running_psalm/issues/UnusedClosureParam
+         */
+        return function ($retries, Request $_request, Response $response = null, TransferException $exception = null) {
             // Limit the number of retries to 5
             if ($retries >= 5) {
                 return false;
@@ -109,7 +109,7 @@ class R4nkt
             if ($response) {
                 // Retry on rate limit hits
                 if ($response->getStatusCode() == 429) {
-                    $this->retryAfter = $response->hasHeader('retry-after') ? $response->getHeader('retry-after')[0] : null;
+                    $this->retryAfter = (int) $response->hasHeader('retry-after') ? (int) $response->getHeader('retry-after')[0] : null;
 
                     return true;
                 }
@@ -126,8 +126,6 @@ class R4nkt
 
     /**
      * delay 1s 2s 3s 4s 5s.
-     *
-     * @return Closure
      */
     public function retryDelay()
     {

@@ -12,8 +12,6 @@ use R4nkt\PhpSdk\QueryParams\QueryParams;
 trait MakesHttpRequests
 {
     /**
-     * @param  string $uri
-     *
      * @return mixed
      */
     protected function get(string $uri, QueryParams $queryParams = null)
@@ -22,9 +20,6 @@ trait MakesHttpRequests
     }
 
     /**
-     * @param  string $uri
-     * @param  array $payload
-     *
      * @return mixed
      */
     protected function post(string $uri, array $payload = [])
@@ -33,9 +28,6 @@ trait MakesHttpRequests
     }
 
     /**
-     * @param  string $uri
-     * @param  array $payload
-     *
      * @return mixed
      */
     protected function put(string $uri, array $payload = [])
@@ -44,9 +36,6 @@ trait MakesHttpRequests
     }
 
     /**
-     * @param  string $uri
-     * @param  array $payload
-     *
      * @return mixed
      */
     protected function delete(string $uri, array $payload = [])
@@ -55,10 +44,6 @@ trait MakesHttpRequests
     }
 
     /**
-     * @param  string $verb
-     * @param  string $uri
-     * @param  array $payload
-     *
      * @return mixed
      */
     protected function request(string $verb, string $uri, array $payload = [], QueryParams $queryParams = null)

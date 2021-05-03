@@ -4,23 +4,13 @@ namespace R4nkt\PhpSdk\Resources;
 
 class Reward extends ApiResource
 {
+    protected string $custom_id;
+
     /**
      * Delete the given reward.
-     *
-     * @return void
      */
-    public function delete()
+    public function delete(): void
     {
         $this->r4nkt->deleteReward($this->custom_id);
     }
-
-    // /**
-    //  * Get the broken links for this reward.
-    //  *
-    //  * @return array
-    //  */
-    // public function brokenLinks()
-    // {
-    //     return $this->r4nkt->brokenLinks($this->custom_id);
-    // }
 }

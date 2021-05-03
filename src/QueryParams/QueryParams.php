@@ -8,7 +8,7 @@ class QueryParams
 
     protected $queryParams = [];
 
-    protected function add(string $key, string $value)
+    protected function add(string $key, int|string $value)
     {
         $this->queryParams[$key] = $value;
 
