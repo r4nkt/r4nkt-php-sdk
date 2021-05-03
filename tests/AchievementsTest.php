@@ -13,6 +13,9 @@ class AchievementsTest extends TestCase
         // clear existing achievements
         $this->clearResources($this->r4nkt->achievements());
 
+        // clear existing criteria groups
+        $this->clearResources($this->r4nkt->criteriaGroups());
+
         // clear existing rewards
         $this->clearResources($this->r4nkt->rewards());
     }

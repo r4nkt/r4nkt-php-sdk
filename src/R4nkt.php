@@ -36,6 +36,9 @@ class R4nkt
     use ManagesRewards;
 
     /** @var string */
+    public $url;
+
+    /** @var string */
     public $apiToken;
 
     /** @var string */
@@ -47,8 +50,9 @@ class R4nkt
     /** @var int */
     public $retryAfter;
 
-    public function __construct(string $apiToken, string $gameId, Client $client = null)
+    public function __construct(string $url, string $apiToken, string $gameId, Client $client = null)
     {
+        $this->url = $url;
         $this->apiToken = $apiToken;
         $this->gameId = $gameId;
 
@@ -78,10 +82,10 @@ class R4nkt
         $handlerStack->push(Middleware::retry($this->retryDecider(), $this->retryDelay()));
 
         return new Client([
-            'base_uri' => "https://r4nkt.com/api/v1/games/{$this->gameId}/",
+            'base_uri' => $this->url . "/v1/games/{$this->gameId}/",
             'http_errors' => false,
             'headers' => [
-                'Authorization' => 'Bearer '.$this->apiToken,
+                'Authorization' => 'Bearer ' . $this->apiToken,
                 'Accept' => 'application/json',
                 'Content-Type' => 'application/json',
             ],

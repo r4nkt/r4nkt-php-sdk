@@ -26,6 +26,7 @@
         <log type="coverage-clover" target="build/logs/clover.xml"/>
     </logging>
     <php>
+        <server name="R4NKT_URL" value="https://api.r4nkt.com"/>
         <server name="R4NKT_API_TOKEN" value="your.r4nkt.api.token"/>
         <server name="R4NKT_GAME_ID" value="your.r4nkt.game.id"/>
     </php>

@@ -14,6 +14,7 @@ class BadgesTest extends TestCase
         $this->clearResources($this->r4nkt->actions());
         $this->clearResources($this->r4nkt->criteriaGroups());
         $this->clearResources($this->r4nkt->criteria());
+        $this->clearResources($this->r4nkt->players());
     }
 
     /** @test */

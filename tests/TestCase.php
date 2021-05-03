@@ -2,8 +2,9 @@
 
 namespace R4nkt\PhpSdk\Tests;
 
-use R4nkt\PhpSdk\R4nkt;
 use PHPUnit\Framework\TestCase as BaseTestCase;
+use R4nkt\PhpSdk\R4nkt;
+use R4nkt\PhpSdk\Resources\ApiResourceCollection;
 
 class TestCase extends BaseTestCase
 {
@@ -11,10 +12,10 @@ class TestCase extends BaseTestCase
 
     public function setUp(): void
     {
-        $this->r4nkt = new R4nkt($_SERVER['R4NKT_API_TOKEN'], $_SERVER['R4NKT_GAME_ID']);
+        $this->r4nkt = new R4nkt($_SERVER['R4NKT_URL'], $_SERVER['R4NKT_API_TOKEN'], $_SERVER['R4NKT_GAME_ID']);
     }
 
-    protected function clearResources(array $resources): void
+    protected function clearResources(ApiResourceCollection $resources): void
     {
         foreach ($resources as $resource) {
             $resource->delete();
@@ -25,6 +26,8 @@ class TestCase extends BaseTestCase
     {
         $name = $name ?? ('name'.uniqid());
         $description = $description ?? ('description'.uniqid());
+
+        $customCriteriaGroupId = $customCriteriaGroupId ?? ($this->createCriteriaGroup($customId . '.criteria.group')->custom_id);
 
         return $this->r4nkt->createAchievement([
             'custom_id' => $customId,
